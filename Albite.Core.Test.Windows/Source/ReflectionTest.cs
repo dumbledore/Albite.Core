@@ -20,15 +20,10 @@ namespace Albite.Core.Test.Windows
             object o2 = 567;
             Type type3 = o2.GetType();
 
-            if (!
-                (
-                Object.ReferenceEquals(type, info) &&
-                Object.ReferenceEquals(type, type2) &&
-                Object.ReferenceEquals(type, type3)
-                ))
-            {
-                throw new InvalidOperationException("Type, TypeInfo and TypeInfo.AsType() have to be the same");
-            }
+            // Type, TypeInfo and TypeInfo.AsType() have to be the same
+            Assert.AreSame(type, info);
+            Assert.AreSame(type, type2);
+            Assert.AreSame(type, type3);
         }
 
         [TestMethod]
