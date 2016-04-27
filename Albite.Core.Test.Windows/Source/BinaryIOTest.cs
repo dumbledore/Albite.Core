@@ -51,10 +51,10 @@ namespace Albite.Core.Test.Windows
         [TestMethod]
         public void EnumWriteBadTypeTest()
         {
-            DateTime value = DateTime.Now;
-
-            try
+            UnitTest.Assert.ThrowsException<InvalidCastException>(() =>
             {
+                DateTime value = DateTime.Now;
+
                 using (MemoryStream stream = new MemoryStream())
                 {
                     using (BinaryWriter writer = new BinaryWriter(stream, Encoding.UTF8, true))
@@ -62,26 +62,18 @@ namespace Albite.Core.Test.Windows
                         writer.WriteEnum(value);
                     }
                 }
-            }
-            catch (InvalidCastException e)
-            {
-                // as expected
-                Debug.WriteLine("Caught {0}", e);
-                return;
-            }
-
-            throw new InvalidOperationException("Write didn't throw");
+            });
         }
 
         [TestMethod]
         public void EnumReadBadTypeTest()
         {
-            DateTime value = DateTime.Now;
-
-            // Write a valid enum, so that the write would work.
-            // Now the read should throw
-            try
+            UnitTest.Assert.ThrowsException<ArgumentException>(() =>
             {
+                DateTime value = DateTime.Now;
+
+                // Write a valid enum, so that the write would work.
+                // Now the read should throw
                 using (MemoryStream stream = new MemoryStream())
                 {
                     using (BinaryWriter writer = new BinaryWriter(stream, Encoding.UTF8, true))
@@ -97,15 +89,7 @@ namespace Albite.Core.Test.Windows
                         reader.ReadEnum<DateTime>();
                     }
                 }
-            }
-            catch (ArgumentException e)
-            {
-                // as expected
-                Debug.WriteLine("Caught {0}", e);
-                return;
-            }
-
-            throw new InvalidOperationException("Read didn't throw");
+            });
         }
 
         private static void testEnum<T>(T en, bool isSmall = false) where T : IComparable, IFormattable
@@ -135,18 +119,10 @@ namespace Albite.Core.Test.Windows
 
         private static void testEnumFail<E>(MyEnum value, bool isSmall = false) where E : Exception
         {
-            try
+            UnitTest.Assert.ThrowsException<E>(() =>
             {
                 testEnum<MyEnum>(value, isSmall);
-            }
-            catch (E e)
-            {
-                // as expected
-                Debug.WriteLine("Caught {0}", e);
-                return;
-            }
-
-            throw new InvalidOperationException("Read didn't throw");
+            });
         }
 
         [TestMethod]
@@ -253,12 +229,7 @@ namespace Albite.Core.Test.Windows
                 {
                     T readValue = r(reader);
                     Debug.WriteLine("Read {0}: {1}", type, readValue);
-
-                    if (!value.Equals(readValue))
-                    {
-                        throw new InvalidDataException(string.Format(
-                            "Read value {0} is not the same as the input value {1}", readValue, value));
-                    }
+                    Assert.AreEqual(value, readValue);
                 }
             }
         }

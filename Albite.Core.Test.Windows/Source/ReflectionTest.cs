@@ -41,10 +41,8 @@ namespace Albite.Core.Test.Windows
         {
             Debug.WriteLine("Type {0} should {1} a type",
                 type.FullName, assertTrue ? "BE" : "NOT be");
-            if (type.GetTypeInfo().IsType() != assertTrue)
-            {
-                throw new InvalidOperationException();
-            }
+
+            Assert.AreEqual(type.GetTypeInfo().IsType(), assertTrue);
         }
     }
 }
