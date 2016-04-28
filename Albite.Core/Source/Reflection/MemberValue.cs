@@ -19,6 +19,11 @@ namespace Albite.Core.Reflection
     {
         public delegate bool FilterDelegate(Type memberType, MemberInfo info);
 
+        public static MemberValue[] GetMembers(this TypeInfo info)
+        {
+            return info.GetMembers(null);
+        }
+
         /// <summary>
         /// Returns all members from a for which the filter returns true 
         /// </summary>
@@ -28,7 +33,7 @@ namespace Albite.Core.Reflection
 
             foreach (FieldInfo member in info.DeclaredFields)
             {
-                if (filter(member.FieldType, member))
+                if (filter == null || filter(member.FieldType, member))
                 {
                     list.Add(new FieldMemberValue(member));
                 }
@@ -36,7 +41,7 @@ namespace Albite.Core.Reflection
 
             foreach (PropertyInfo member in info.DeclaredProperties)
             {
-                if (filter(member.PropertyType, member))
+                if (filter == null || filter(member.PropertyType, member))
                 {
                     list.Add(new PropertyMemberValue(member));
                 }
