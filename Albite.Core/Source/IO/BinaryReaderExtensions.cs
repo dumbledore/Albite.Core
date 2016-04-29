@@ -4,23 +4,52 @@ using System.IO;
 
 namespace Albite.Core.IO
 {
+    /// <summary>
+    /// Extension methods for BinaryReader.
+    /// </summary>
     public static class BinaryReaderExtensions
     {
+        /// <summary>
+        /// Reads a <c>System.Enum</c> of type <typeparamref name="T" />.
+        /// </summary>
+        /// <typeparam name="T">The type of the <c>System.Enum</c></typeparam>
+        /// <param name="reader"><c>System.IO.BinaryReader</c> used for reading the value.</param>
+        /// <returns>The read <c>System.Enum</c>.</returns>
         public static T ReadEnum<T>(this BinaryReader reader) where T : IComparable, IFormattable
         {
             return (T)reader.ReadEnum(typeof(T));
         }
 
+        /// <summary>
+        /// Reads a <c>System.Enum</c> of type <typeparamref name="T" />.
+        /// It is read as a byte to save space.
+        /// </summary>
+        /// <typeparam name="T">The type of the <c>System.Enum</c></typeparam>
+        /// <param name="reader"><c>System.IO.BinaryReader</c> used for reading the value.</param>
+        /// <returns>The read <c>System.Enum</c>.</returns>
         public static T ReadSmallEnum<T>(this BinaryReader reader) where T : IComparable, IFormattable
         {
             return (T)reader.ReadSmallEnum(typeof(T));
         }
 
+        /// <summary>
+        /// Reads a <c>System.Enum</c> of type <c>enumType</c>.
+        /// </summary>
+        /// <param name="enumType">The type of the <c>System.Enum</c></param>
+        /// <param name="reader"><c>System.IO.BinaryReader</c> used for reading the value.</param>
+        /// <returns>The read <c>System.Enum</c>.</returns>
         public static object ReadEnum(this BinaryReader reader, Type enumType)
         {
             return ReadEnum(reader, enumType, false);
         }
 
+        /// <summary>
+        /// Reads a <c>System.Enum</c> of type <c>enumType</c>.
+        /// It is read as a byte to save space.
+        /// </summary>
+        /// <param name="enumType">The type of the <c>System.Enum</c></param>
+        /// <param name="reader"><c>System.IO.BinaryReader</c> used for reading the value.</param>
+        /// <returns>The read <c>System.Enum</c>.</returns>
         public static object ReadSmallEnum(this BinaryReader reader, Type enumType)
         {
             return ReadEnum(reader, enumType, true);
@@ -43,6 +72,11 @@ namespace Albite.Core.IO
             return value;
         }
 
+        /// <summary>
+        /// Reads a <c>System.Type</c>.
+        /// </summary>
+        /// <param name="reader"><c>System.IO.BinaryReader</c> used for reading the value.</param>
+        /// <returns>The read <c>System.Type</c>.</returns>
         public static Type ReadType(this BinaryReader reader)
         {
             // Get the type name from the input stream
@@ -57,6 +91,11 @@ namespace Albite.Core.IO
             return value;
         }
 
+        /// <summary>
+        /// Reads a <c>System.DateTime</c>.
+        /// </summary>
+        /// <param name="reader"><c>System.IO.BinaryReader</c> used for reading the value.</param>
+        /// <returns>The read <c>System.DateTime</c>.</returns>
         public static DateTime ReadDateTime(this BinaryReader reader)
         {
             long dateTime = reader.ReadInt64();
@@ -68,6 +107,11 @@ namespace Albite.Core.IO
             return readValue;
         }
 
+        /// <summary>
+        /// Reads a <c>System.TimeSpan</c>.
+        /// </summary>
+        /// <param name="reader"><c>System.IO.BinaryReader</c> used for reading the value.</param>
+        /// <returns>The read <c>System.TimeSpan</c>.</returns>
         public static TimeSpan ReadTimeSpan(this BinaryReader reader)
         {
             long span = reader.ReadInt64();
@@ -79,6 +123,11 @@ namespace Albite.Core.IO
             return value;
         }
 
+        /// <summary>
+        /// Reads a <c>System.DateTimeOffset</c>.
+        /// </summary>
+        /// <param name="reader"><c>System.IO.BinaryReader</c> used for reading the value.</param>
+        /// <returns>The read <c>System.DateTimeOffset</c>.</returns>
         public static DateTimeOffset ReadDateTimeOffset(this BinaryReader reader)
         {
             DateTime date = reader.ReadDateTime();
@@ -91,6 +140,11 @@ namespace Albite.Core.IO
             return value;
         }
 
+        /// <summary>
+        /// Reads a <c>System.Guid</c>.
+        /// </summary>
+        /// <param name="reader"><c>System.IO.BinaryReader</c> used for reading the value.</param>
+        /// <returns>The read <c>System.Guid</c>.</returns>
         public static Guid ReadGuid(this BinaryReader reader)
         {
             int size = reader.ReadInt32();

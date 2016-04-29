@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace Albite.Core.Reflection
 {
-    public class PropertyMemberValue : MemberValue
+    internal class PropertyMemberValue : MemberValue
     {
         readonly PropertyInfo info;
 
@@ -12,14 +12,14 @@ namespace Albite.Core.Reflection
             this.info = info;
         }
 
-        public override object GetValue(object t)
+        public override object GetValue(object obj)
         {
-            return info.GetValue(t);
+            return info.GetValue(obj);
         }
 
-        public override void SetValue(object t, object value)
+        public override void SetValue(object obj, object value)
         {
-            info.SetValue(t, value);
+            info.SetValue(obj, value);
         }
 
         public override string Name
