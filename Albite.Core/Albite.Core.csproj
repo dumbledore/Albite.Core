@@ -47,7 +47,8 @@
     <Compile Include="Source\IO\BinaryReaderExtensions.cs" />
     <Compile Include="Source\IO\BinaryWriterExtensions.cs" />
     <Compile Include="Source\Reflection\FieldMemberValue.cs" />
-    <Compile Include="Source\Reflection\MemberValue.cs" />
+    <Compile Include="Source\Reflection\IMemberValue.cs" />
+    <Compile Include="Source\Reflection\MemberValueExtensions.cs" />
     <Compile Include="Source\Reflection\PropertyMemberValue.cs" />
     <Compile Include="Source\Reflection\TypeInfoExtensions.cs" />
     <Compile Include="Source\UnitTest\Assert.cs" />

@@ -4,43 +4,6 @@ using System.Reflection;
 
 namespace Albite.Core.Reflection
 {
-    // Why is there a bunch of exactly the same methods/properties
-    // that are however not declared in MemberInfo at all?!
-
-    /// <summary>
-    /// Abstracts setting fields and properties into one.
-    /// </summary>
-    public abstract class MemberValue
-    {
-        /// <summary>
-        /// Returns the value of member.
-        /// </summary>
-        /// <param name="obj">The object for which the member value is being queried.</param>
-        /// <returns>
-        /// The value of the member of <c>obj</c>.
-        /// </returns>
-        public abstract object GetValue(object obj);
-
-        /// <summary>
-        /// Sets the value of the member.
-        /// </summary>
-        /// <param name="obj">The object for which the member value is being set</param>
-        /// <param name="value">The value of the member.</param>
-        public abstract void SetValue(object obj, object value);
-
-        /// <summary>
-        /// Gets the name of the current member.
-        /// </summary>
-        /// <returns>A <c>System.String</c> containing the name of this member.</returns>
-        public abstract string Name { get; }
-
-        /// <summary>
-        /// Gets the type of the member.
-        /// <returns>The type of the member.</returns>
-        /// </summary>
-        public abstract Type MemberType { get; }
-    }
-
     /// <summary>
     /// Extension methods for <c>TypeInfo</c> that return <c>MemberValue</c>s.
     /// </summary>
@@ -66,7 +29,7 @@ namespace Albite.Core.Reflection
         /// A <c>TypeInfo</c> for which <c>MemberValue</c>s are to be obtained.
         /// </param>
         /// <returns>An array of <c>MemberValue</c>s for the members.</returns>
-        public static MemberValue[] GetMembers(this TypeInfo info)
+        public static IMemberValue[] GetMembers(this TypeInfo info)
         {
             return info.GetMembers(null);
         }
@@ -80,9 +43,9 @@ namespace Albite.Core.Reflection
         /// </param>
         /// <param name="filter">A filter used for selecting which members to return.</param>
         /// <returns>An array of <c>MemberValue</c>s for the filtered members.</returns>
-        public static MemberValue[] GetMembers(this TypeInfo info, FilterDelegate filter)
+        public static IMemberValue[] GetMembers(this TypeInfo info, FilterDelegate filter)
         {
-            List<MemberValue> list = new List<MemberValue>();
+            List<IMemberValue> list = new List<IMemberValue>();
 
             foreach (FieldInfo member in info.DeclaredFields)
             {
