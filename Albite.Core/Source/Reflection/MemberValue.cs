@@ -94,7 +94,8 @@ namespace Albite.Core.Reflection
 
             foreach (PropertyInfo member in info.DeclaredProperties)
             {
-                if (filter == null || filter(member.PropertyType, member))
+                if ((member.GetIndexParameters().Length == 0) &&
+                    (filter == null || filter(member.PropertyType, member)))
                 {
                     list.Add(new PropertyMemberValue(member));
                 }
