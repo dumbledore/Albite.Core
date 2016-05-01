@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 
 namespace Albite.Core.Test.Windows
@@ -43,6 +44,63 @@ namespace Albite.Core.Test.Windows
                 type.FullName, assertTrue ? "BE" : "NOT be");
 
             Assert.AreEqual(type.GetTypeInfo().IsType(), assertTrue);
+        }
+
+        private class MV
+        {
+            private readonly int _field;
+            public int Field() { return _field; }
+            public int Property { get; private set; }
+
+            public MV(int f, int p)
+            {
+                _field = f;
+                Property = p;
+            }
+        }
+
+        [TestMethod]
+        public void MemberValueTest()
+        {
+            MV mv = new MV(10, 20);
+
+            // Superfluous, but still.
+            Assert.AreEqual(10, mv.Field());
+            Assert.AreEqual(20, mv.Property);
+
+            // Get all members of MV (fields + properties)
+            IMemberValue[] members = typeof(MV).GetTypeInfo().GetMembers();
+
+            // alter _field
+            IMemberValue fieldMember = members.Single(m => m.Name == "_field");
+            fieldMember.SetValue(mv, 100);
+            Assert.AreEqual(100, (int)fieldMember.GetValue(mv));
+            Assert.AreEqual(100, mv.Field());
+
+            // alter Property
+            IMemberValue propertyMember = members.Single(m => m.Name == "Property");
+            propertyMember.SetValue(mv, 200);
+            Assert.AreEqual(200, (int)propertyMember.GetValue(mv));
+            Assert.AreEqual(200, mv.Property);
+        }
+
+        private class MVI
+        {
+            public string this[int index]
+            {
+                get { return "Hello"; }
+                set { }
+            }
+        }
+
+        [TestMethod]
+        public void MemberValueIndexerTest()
+        {
+            MVI mvi = new MVI();
+
+            // Get all members of MVI (fields + properties)
+            IMemberValue[] members = typeof(MVI).GetTypeInfo().GetMembers();
+            Assert.AreEqual(0, members.Length);
         }
     }
 }
