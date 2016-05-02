@@ -12,7 +12,7 @@
 
         /// <summary>
         /// The current logger used by the framework.
-        /// Defaults to no logger (i.e. null).
+        /// Defaults to <c>null</c> (no logger).
         /// </summary>
         public static ILogger Current
         {
@@ -26,7 +26,10 @@
             }
         }
 
-        /// <summary>Log a single message to the current logger.</summary>
+        /// <summary>
+        /// Log a single message to the current logger.
+        /// If <c>Current</c> is <c>null</c>, nothing is logged.
+        /// </summary>
         /// <param name="format">A composite format string.</param>
         /// <param name="args">An object array that contains zero or more objects to format.</param>
         public static void LogMessage(string format, params object[] args)
