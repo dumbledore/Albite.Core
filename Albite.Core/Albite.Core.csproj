@@ -44,6 +44,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Collections\EnumerableExtensions.cs" />
     <Compile Include="Source\Collections\IdentityEqualityComparer.cs" />
+    <Compile Include="Source\Diagnostics\DebugLogger.cs" />
+    <Compile Include="Source\Diagnostics\ILogger.cs" />
+    <Compile Include="Source\Diagnostics\Logger.cs" />
     <Compile Include="Source\IO\BinaryReaderExtensions.cs" />
     <Compile Include="Source\IO\BinaryWriterExtensions.cs" />
     <Compile Include="Source\Reflection\FieldMemberValue.cs" />
