@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 
-namespace Albite.Core.Test.Windows
+namespace Albite.Core.Test.WindowsPhone
 {
     [TestClass]
-    public class BinaryIOTestW : UnitTest
+    public class BinaryIOTestWP : UnitTest
     {
         private readonly BinaryIOTest _test = new BinaryIOTest();
 

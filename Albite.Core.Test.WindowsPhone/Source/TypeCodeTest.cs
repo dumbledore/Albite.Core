@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 
-namespace Albite.Core.Test.Windows
+namespace Albite.Core.Test.WindowsPhone
 {
     [TestClass]
-    public class TypeCodeTestW : UnitTest
+    public class TypeCodeTestWP : UnitTest
     {
         private readonly TypeCodeTest _test = new TypeCodeTest();
 

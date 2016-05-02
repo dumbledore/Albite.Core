@@ -7,7 +7,7 @@
   
   <Properties>
     <DisplayName>Albite.Core.Test.Windows</DisplayName>
-    <PublisherDisplayName>Svetlin</PublisherDisplayName>
+    <PublisherDisplayName>Svetlin Ankov</PublisherDisplayName>
     <Logo>Images\UnitTestStoreLogo.png</Logo>
     <Description>Albite.Core.Test.Windows</Description>
   </Properties>

@@ -5,11 +5,11 @@
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9809143A-01AE-4D29-810E-EB39843DF112}</ProjectGuid>
+    <ProjectGuid>{09D55295-D235-46E1-A3A3-1823664B6274}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Albite.Core</RootNamespace>
-    <AssemblyName>Albite.Core</AssemblyName>
+    <RootNamespace>Albite.Core.Test</RootNamespace>
+    <AssemblyName>Albite.Core.Test</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -33,8 +33,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-    <DocumentationFile>bin\Release\Albite.Core.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
@@ -42,23 +40,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\Collections\EnumerableExtensions.cs" />
-    <Compile Include="Source\Collections\IdentityEqualityComparer.cs" />
-    <Compile Include="Source\Diagnostics\DebugLogger.cs" />
-    <Compile Include="Source\Diagnostics\ILogger.cs" />
-    <Compile Include="Source\Diagnostics\Logger.cs" />
-    <Compile Include="Source\IO\BinaryReaderExtensions.cs" />
-    <Compile Include="Source\IO\BinaryWriterExtensions.cs" />
-    <Compile Include="Source\Reflection\FieldMemberValue.cs" />
-    <Compile Include="Source\Reflection\IMemberValue.cs" />
-    <Compile Include="Source\Reflection\MemberValueExtensions.cs" />
-    <Compile Include="Source\Reflection\PropertyMemberValue.cs" />
-    <Compile Include="Source\Reflection\TypeInfoExtensions.cs" />
-    <Compile Include="Source\Test\Assert.cs" />
-    <Compile Include="Source\Test\CollectionAssert.cs" />
-    <Compile Include="Source\Test\IAssert.cs" />
-    <Compile Include="Source\Test\ICollectionAssert.cs" />
-    <Compile Include="Source\TypeCode.cs" />
+    <Compile Include="Source\BinaryIOTest.cs" />
+    <Compile Include="Source\EnumerableTest.cs" />
+    <Compile Include="Source\ReflectionTest.cs" />
+    <Compile Include="Source\TypeCodeTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Albite.Core\Albite.Core.csproj">
+      <Project>{9809143a-01ae-4d29-810e-eb39843df112}</Project>
+      <Name>Albite.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

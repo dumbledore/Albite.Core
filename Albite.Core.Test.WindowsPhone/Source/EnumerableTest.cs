@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 
-namespace Albite.Core.Test.Windows
+namespace Albite.Core.Test.WindowsPhone
 {
     [TestClass]
-    public class EnumerableTestW : UnitTest
+    public class EnumerableTestWP : UnitTest
     {
         private readonly EnumerableTest _test = new EnumerableTest();
 
