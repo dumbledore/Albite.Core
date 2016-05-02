@@ -1,5 +1,5 @@
-﻿using System;
-using System.Diagnostics;
+﻿using Albite.Core.Diagnostics;
+using System;
 using System.IO;
 
 namespace Albite.Core.IO
@@ -67,7 +67,7 @@ namespace Albite.Core.IO
             object value = Enum.ToObject(enumType, intValue);
 
 #if DEBUG
-            Debug.WriteLine("Read{3}Enum: {0}:{1}:{2}", enumType.FullName, value, intValue, isSmall ? "Small" : "");
+            Logger.LogMessage("Read{3}Enum: {0}:{1}:{2}", enumType.FullName, value, intValue, isSmall ? "Small" : "");
 #endif
             return value;
         }
@@ -86,7 +86,7 @@ namespace Albite.Core.IO
             Type value = Type.GetType(typeName, true);
 
 #if DEBUG
-            Debug.WriteLine("ReadType: {0}", value.FullName);
+            Logger.LogMessage("ReadType: {0}", value.FullName);
 #endif
             return value;
         }
@@ -102,7 +102,7 @@ namespace Albite.Core.IO
             DateTime readValue=DateTime.FromBinary(dateTime);
 
 #if DEBUG
-            Debug.WriteLine("ReadDateTime: {0}", readValue);
+            Logger.LogMessage("ReadDateTime: {0}", readValue);
 #endif
             return readValue;
         }
@@ -118,7 +118,7 @@ namespace Albite.Core.IO
             TimeSpan value = TimeSpan.FromTicks(span);
 
 #if DEBUG
-            Debug.WriteLine("ReadTimeSpan: {0}", value);
+            Logger.LogMessage("ReadTimeSpan: {0}", value);
 #endif
             return value;
         }
@@ -135,7 +135,7 @@ namespace Albite.Core.IO
             DateTimeOffset value = new DateTimeOffset(date, offset);
 
 #if DEBUG
-            Debug.WriteLine("ReadDateTimeOffset: {0}", value);
+            Logger.LogMessage("ReadDateTimeOffset: {0}", value);
 #endif
             return value;
         }
@@ -152,7 +152,7 @@ namespace Albite.Core.IO
             Guid value =new Guid(buf);
 
 #if DEBUG
-            Debug.WriteLine("ReadGuid: {0}", value);
+            Logger.LogMessage("ReadGuid: {0}", value);
 #endif
             return value;
         }

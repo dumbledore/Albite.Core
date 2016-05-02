@@ -1,5 +1,5 @@
-﻿using System;
-using System.Diagnostics;
+﻿using Albite.Core.Diagnostics;
+using System;
 using System.IO;
 
 namespace Albite.Core.IO
@@ -31,7 +31,7 @@ namespace Albite.Core.IO
             int intValue = Convert.ToInt32(value);
 
 #if DEBUG
-            Debug.WriteLine("WriteEnum: {0}:{1}:{2}", enumType.FullName, value, intValue);
+            Logger.LogMessage("WriteEnum: {0}:{1}:{2}", enumType.FullName, value, intValue);
 #endif
             writer.Write(intValue);
         }
@@ -66,7 +66,7 @@ namespace Albite.Core.IO
             byte byteValue = Convert.ToByte(value);
 
 #if DEBUG
-            Debug.WriteLine("WriteSmallEnum: {0}:{1}:{2}", enumType.FullName, value, byteValue);
+            Logger.LogMessage("WriteSmallEnum: {0}:{1}:{2}", enumType.FullName, value, byteValue);
 #endif
             writer.Write(byteValue);
         }
@@ -81,7 +81,7 @@ namespace Albite.Core.IO
             string typeName = type.AssemblyQualifiedName;
 
 #if DEBUG
-            Debug.WriteLine("Write Type: {0}", typeName);
+            Logger.LogMessage("Write Type: {0}", typeName);
 #endif
             writer.Write(typeName);
         }
@@ -96,7 +96,7 @@ namespace Albite.Core.IO
             long binaryDate = date.ToBinary();
 
 #if DEBUG
-            Debug.WriteLine("Write DateTime: {0}:{1}", date, binaryDate);
+            Logger.LogMessage("Write DateTime: {0}:{1}", date, binaryDate);
 #endif
             writer.Write(binaryDate);
         }
@@ -112,7 +112,7 @@ namespace Albite.Core.IO
             writer.Write(ticks);
 
 #if DEBUG
-            Debug.WriteLine("Write TimeSpan: {0}:{1}", span, ticks);
+            Logger.LogMessage("Write TimeSpan: {0}:{1}", span, ticks);
 #endif
         }
 
@@ -124,7 +124,7 @@ namespace Albite.Core.IO
         public static void Write(this BinaryWriter writer, DateTimeOffset offset)
         {
 #if DEBUG
-            Debug.WriteLine("Write DateTimeOffset: {0}", offset);
+            Logger.LogMessage("Write DateTimeOffset: {0}", offset);
 #endif
             writer.Write(offset.DateTime);
             writer.Write(offset.Offset);
@@ -140,7 +140,7 @@ namespace Albite.Core.IO
             byte[] buf = guid.ToByteArray();
 
 #if DEBUG
-            Debug.WriteLine("Write Guid: {0}:{1}", guid, BitConverter.ToString(buf));
+            Logger.LogMessage("Write Guid: {0}:{1}", guid, BitConverter.ToString(buf));
 #endif
             writer.Write(buf.Length);
             writer.Write(buf);
