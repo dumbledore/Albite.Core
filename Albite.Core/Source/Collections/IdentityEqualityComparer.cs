@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
 namespace Albite.Core.Collections
@@ -38,7 +39,7 @@ namespace Albite.Core.Collections
         /// </returns>
         public bool Equals(T x, T y)
         {
-            return object.ReferenceEquals(x, y);
+            return Object.ReferenceEquals(x, y);
         }
     }
 }

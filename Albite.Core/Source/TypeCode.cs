@@ -174,7 +174,7 @@ namespace Albite.Core
         /// <returns>
         /// The code of the underlying type, or <c>Empty</c> if <c>object</c> is <c>null</c>.
         /// </returns>
-        public static TypeCode GetTypeCode(this Object obj)
+        public static TypeCode GetTypeCode(this object obj)
         {
             if (obj == null)
             {
