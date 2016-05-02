@@ -51,7 +51,6 @@
     <Compile Include="Source\Reflection\MemberValueExtensions.cs" />
     <Compile Include="Source\Reflection\PropertyMemberValue.cs" />
     <Compile Include="Source\Reflection\TypeInfoExtensions.cs" />
-    <Compile Include="Source\UnitTest\Assert.cs" />
     <Compile Include="Source\TypeCode.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

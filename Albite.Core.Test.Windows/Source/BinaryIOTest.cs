@@ -51,7 +51,7 @@ namespace Albite.Core.Test.Windows
         [TestMethod]
         public void EnumWriteBadTypeTest()
         {
-            UnitTest.Assert.ThrowsException<InvalidCastException>(() =>
+            Assert.ThrowsException<InvalidCastException>(() =>
             {
                 DateTime value = DateTime.Now;
 
@@ -68,7 +68,7 @@ namespace Albite.Core.Test.Windows
         [TestMethod]
         public void EnumReadBadTypeTest()
         {
-            UnitTest.Assert.ThrowsException<ArgumentException>(() =>
+            Assert.ThrowsException<ArgumentException>(() =>
             {
                 DateTime value = DateTime.Now;
 
@@ -119,7 +119,7 @@ namespace Albite.Core.Test.Windows
 
         private static void testEnumFail<E>(MyEnum value, bool isSmall = false) where E : Exception
         {
-            UnitTest.Assert.ThrowsException<E>(() =>
+            Assert.ThrowsException<E>(() =>
             {
                 testEnum<MyEnum>(value, isSmall);
             });
