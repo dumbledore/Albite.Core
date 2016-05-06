@@ -1,5 +1,6 @@
 ﻿using Albite.Collections;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Albite.Test
@@ -247,7 +248,7 @@ namespace Albite.Test
             }
         }
 
-        private void assertBuffer(CircularBuffer<int> buffer, IList<int> expected, int expectedCount, bool expectedEmpty, bool expectedFull)
+        private void assertBuffer(CircularBuffer<int> buffer, IList expected, int expectedCount, bool expectedEmpty, bool expectedFull)
         {
             // count as expected?
             Assert.AreEqual(expectedCount, buffer.Count);
@@ -259,8 +260,7 @@ namespace Albite.Test
             Assert.AreEqual(expectedFull, buffer.IsFull);
 
             // items as expected?
-            // TODO
-            //CollectionAssert.AreEqual((ICollection)expected, buffer);
+            CollectionAssert.AreEqual(expected, buffer);
 
             // for non-empty buffers
             if (expected.Count > 0)

@@ -6,7 +6,7 @@ using System.Linq;
 #pragma warning disable 1591
 namespace Albite.Collections
 {
-    public class CircularBuffer<TValue> : IEnumerable<TValue>, IEnumerable
+    public class CircularBuffer<TValue> : IEnumerable<TValue>, ICollection
     {
         public int MaximumCapacity
         {
@@ -241,6 +241,15 @@ namespace Albite.Collections
         private int wrapIndex(int index)
         {
             return index % MaximumCapacity;
+        }
+
+        public bool IsSynchronized { get { return false; } }
+
+        public object SyncRoot { get { return null; } }
+
+        public void CopyTo(Array array, int index)
+        {
+            data.CopyTo(array, index);
         }
 
         public IEnumerator<TValue> GetEnumerator()
