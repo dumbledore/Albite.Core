@@ -17,10 +17,10 @@ namespace Albite.Collections
         protected TValue[] data;
 
         // offset of current item
-        protected int offset;
+        protected int offset = 0;
 
         // total number of items
-        protected int size;
+        protected int size = 0;
 
         public CircularBuffer(int maximumCapacity)
         {
@@ -30,8 +30,6 @@ namespace Albite.Collections
             }
 
             data = new TValue[maximumCapacity];
-
-            reset(false);
         }
 
         public CircularBuffer(IEnumerable<TValue> collection, int maximumCapacity)
@@ -52,9 +50,6 @@ namespace Albite.Collections
             {
                 throw new ArgumentException("collection has more data than provided maximumCapacity");
             }
-
-            // reset
-            reset(false);
 
             // get the current size <= maximumCapacity
             this.size = data.Length;
@@ -118,16 +113,20 @@ namespace Albite.Collections
             }
         }
 
-        public void SetHead(TValue item)
+        public TValue Head
         {
-            ThrowIfEmpty();
-            int index = getHeadIndex();
-            data[index] = item;
-        }
 
-        public TValue GetHead()
-        {
-            return getHead(false);
+            set
+            {
+                ThrowIfEmpty();
+                int index = getHeadIndex();
+                data[index] = value;
+            }
+
+            get
+            {
+                return getHead(false);
+            }
         }
 
         public TValue RemoveHead()
@@ -183,16 +182,19 @@ namespace Albite.Collections
             data[index] = item;
         }
 
-        public void SetTail(TValue item)
+        public TValue Tail
         {
-            ThrowIfEmpty();
-            int index = getTailIndex();
-            data[index] = item;
-        }
+            set
+            {
+                ThrowIfEmpty();
+                int index = getTailIndex();
+                data[index] = value;
+            }
 
-        public TValue GetTail()
-        {
-            return getTail(false);
+            get
+            {
+                return getTail(false);
+            }
         }
 
         public TValue RemoveTail()

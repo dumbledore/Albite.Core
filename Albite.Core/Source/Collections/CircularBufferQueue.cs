@@ -23,7 +23,7 @@ namespace Albite.Collections
 
         public TValue Peek()
         {
-            return GetHead();
+            return Head;
         }
     }
 }

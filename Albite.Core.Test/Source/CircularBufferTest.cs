@@ -49,7 +49,7 @@ namespace Albite.Test
             assertBuffer(buffer, new int[] { 5, 2, 3 }, 3, false, true);
 
             // remove tail
-            Assert.AreEqual(buffer.GetTail(), buffer.RemoveTail());
+            Assert.AreEqual(buffer.Tail, buffer.RemoveTail());
 
             // { 5, 2 }
             assertBuffer(buffer, new int[] { 5, 2 }, 2, false, false);
@@ -61,7 +61,7 @@ namespace Albite.Test
             assertBuffer(buffer, new int[] { 6, 5, 2 }, 3, false, true);
 
             // remove head
-            Assert.AreEqual(buffer.GetHead(), buffer.RemoveHead());
+            Assert.AreEqual(buffer.Head, buffer.RemoveHead());
 
             // { 5, 2 }
             assertBuffer(buffer, new int[] { 5, 2 }, 2, false, false);
@@ -85,19 +85,19 @@ namespace Albite.Test
             assertBuffer(buffer, new int[] { 9, 8, 7 }, 3, false, true);
 
             // remove tail
-            Assert.AreEqual(buffer.GetTail(), buffer.RemoveTail());
+            Assert.AreEqual(buffer.Tail, buffer.RemoveTail());
 
             // { 9, 8 }
             assertBuffer(buffer, new int[] { 9, 8 }, 2, false, false);
 
             // remove head
-            Assert.AreEqual(buffer.GetHead(), buffer.RemoveHead());
+            Assert.AreEqual(buffer.Head, buffer.RemoveHead());
 
             // { 8 }
             assertBuffer(buffer, new int[] { 8 }, 1, false, false);
 
             // remove tail
-            Assert.AreEqual(buffer.GetTail(), buffer.RemoveTail());
+            Assert.AreEqual(buffer.Tail, buffer.RemoveTail());
 
             // { }
             assertBuffer(buffer, new int[] { }, 0, true, false);
@@ -105,7 +105,7 @@ namespace Albite.Test
             // GetHead() must throw exception on an empty list
             Assert.ThrowsException<InvalidOperationException>(() =>
             {
-                buffer.GetHead();
+                int value = buffer.Head;
             });
 
             // RemoveHead() must throw exception on an empty list
@@ -116,7 +116,7 @@ namespace Albite.Test
 
             Assert.ThrowsException<InvalidOperationException>(() =>
             {
-                buffer.GetTail();
+                int value = buffer.Tail;
             });
 
             // RemoveTail() must throw exception on an empty list
@@ -158,7 +158,6 @@ namespace Albite.Test
             {
                 int number = random.Next(5);
                 int item = i;
-                int removedItem;
 
                 // 0 -> remove head
                 // 1 -> add head
@@ -177,11 +176,10 @@ namespace Albite.Test
                 {
                     case 0:
                         // asert heads are the same
-                        removedItem = buffer.GetHead();
-                        Assert.AreEqual(list[0], removedItem);
+                        Assert.AreEqual(buffer.Head, list[0]);
 
                         // remove head from buffer
-                        Assert.AreEqual(removedItem, buffer.RemoveHead());
+                        Assert.AreEqual(buffer.Head, buffer.RemoveHead());
 
                         // remove from list
                         list.RemoveAt(0);
@@ -207,11 +205,10 @@ namespace Albite.Test
 
                     case 2:
                         // asert tails are the same
-                        removedItem = buffer.GetTail();
-                        Assert.AreEqual(list[list.Count - 1], removedItem);
+                        Assert.AreEqual(buffer.Tail, list[list.Count - 1]);
 
                         // remove tail from buffer
-                        Assert.AreEqual(removedItem, buffer.RemoveTail());
+                        Assert.AreEqual(buffer.Tail, buffer.RemoveTail());
 
                         // remove from list
                         list.RemoveAt(list.Count - 1);
@@ -269,10 +266,10 @@ namespace Albite.Test
             if (expected.Count > 0)
             {
                 // head as expected?
-                Assert.AreEqual(expected[0], buffer.GetHead());
+                Assert.AreEqual(expected[0], buffer.Head);
 
                 // tail as expected?
-                Assert.AreEqual(expected[expected.Count - 1], buffer.GetTail());
+                Assert.AreEqual(expected[expected.Count - 1], buffer.Tail);
             }
         }
     }

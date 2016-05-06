@@ -19,7 +19,7 @@ namespace Albite.Collections
         public void Update(TValue item)
         {
             ThrowIfEmpty();
-            SetHead(item);
+            Head = item;
         }
 
         public TValue Pop()
@@ -29,7 +29,7 @@ namespace Albite.Collections
 
         public TValue Peek()
         {
-            return GetHead();
+            return Head;
         }
     }
 }
