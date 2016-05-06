@@ -55,6 +55,7 @@
     <Compile Include="Source\BinaryIOTest.cs" />
     <Compile Include="Source\EnumerableTest.cs" />
     <Compile Include="Source\ReflectionTest.cs" />
+    <Compile Include="Source\TreeTest.cs" />
     <Compile Include="Source\TypeCodeTest.cs" />
   </ItemGroup>
   <ItemGroup>
