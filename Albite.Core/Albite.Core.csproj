@@ -43,6 +43,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Collections\AbstractNode.cs" />
+    <Compile Include="Source\Collections\CircularBuffer.cs" />
+    <Compile Include="Source\Collections\CircularBufferQueue.cs" />
+    <Compile Include="Source\Collections\CircularBufferStack.cs" />
     <Compile Include="Source\Collections\DepthFirstTreeEnumerator.cs" />
     <Compile Include="Source\Collections\EnumerableExtensions.cs" />
     <Compile Include="Source\Collections\IdentityEqualityComparer.cs" />

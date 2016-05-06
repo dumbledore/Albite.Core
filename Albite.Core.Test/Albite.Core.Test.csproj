@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\BinaryIOTest.cs" />
+    <Compile Include="Source\CircularBufferTest.cs" />
     <Compile Include="Source\EnumerableTest.cs" />
     <Compile Include="Source\ReflectionTest.cs" />
     <Compile Include="Source\TreeTest.cs" />
