@@ -1,5 +1,4 @@
-﻿#pragma warning disable 1591
-namespace Albite.Collections
+﻿namespace Albite.Collections
 {
     public interface INode<TValue>
     {

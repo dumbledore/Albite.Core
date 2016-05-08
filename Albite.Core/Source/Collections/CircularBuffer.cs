@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-#pragma warning disable 1591
 namespace Albite.Collections
 {
     public class CircularBuffer<TValue> : IEnumerable<TValue>, ICollection

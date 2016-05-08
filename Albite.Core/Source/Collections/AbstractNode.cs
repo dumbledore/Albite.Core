@@ -1,6 +1,5 @@
 ﻿using System;
 
-#pragma warning disable 1591
 namespace Albite.Collections
 {
     public abstract class AbstractNode<TValue> : INode<TValue>
