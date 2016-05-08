@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Albite.Core.Diagnostics
+namespace Albite.Diagnostics
 {
     /// <summary>
     /// Logger based on <c>System.Diagnostics.Debug</c>.

@@ -5,9 +5,9 @@ using System.Runtime.CompilerServices;
 [assembly: InternalsVisibleTo("Albite.Core.Windows")]
 [assembly: InternalsVisibleTo("Albite.Core.WindowsPhone")]
 
-namespace Albite.Core.Test
+namespace Albite.Test
 {
-    internal interface IAssert
+    interface IAssert
     {
         void AreEqual(object expected, object actual);
         void AreEqual<T>(T expected, T actual);

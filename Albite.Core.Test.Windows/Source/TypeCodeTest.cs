@@ -1,11 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 
-namespace Albite.Core.Test.Windows
+namespace Albite.Test.Windows
 {
     [TestClass]
-    public class TypeCodeTestW : UnitTest
+    public class TypeCodeTest : UnitTest
     {
-        private readonly TypeCodeTest _test = new TypeCodeTest();
+        private readonly Test.TypeCodeTest _test = new Test.TypeCodeTest();
 
         [TestMethod]
         public void TypeCodeFromNullAsObject()

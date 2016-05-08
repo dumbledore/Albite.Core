@@ -1,11 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 
-namespace Albite.Core.Test.WindowsPhone
+namespace Albite.Test.WindowsPhone
 {
     [TestClass]
-    public class EnumerableTestWP : UnitTest
+    public class EnumerableTest : UnitTest
     {
-        private readonly EnumerableTest _test = new EnumerableTest();
+        private readonly Test.EnumerableTest _test = new Test.EnumerableTest();
 
         [TestMethod]
         public void ListTest()

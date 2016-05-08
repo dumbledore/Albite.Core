@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Reflection;
 
-namespace Albite.Core.Reflection
+namespace Albite.Reflection
 {
-    internal class FieldMemberValue : IMemberValue
+    class FieldMemberValue : IMemberValue
     {
         readonly FieldInfo info;
 

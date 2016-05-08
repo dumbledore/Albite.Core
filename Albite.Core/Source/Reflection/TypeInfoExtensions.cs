@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace Albite.Core.Reflection
+namespace Albite.Reflection
 {
     /// <summary>
     /// Extensions methods for the <c>TypeInfo</c> type.

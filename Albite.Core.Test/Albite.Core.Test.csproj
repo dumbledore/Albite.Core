@@ -8,7 +8,7 @@
     <ProjectGuid>{09D55295-D235-46E1-A3A3-1823664B6274}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Albite.Core.Test</RootNamespace>
+    <RootNamespace>Albite.Test</RootNamespace>
     <AssemblyName>Albite.Core.Test</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>

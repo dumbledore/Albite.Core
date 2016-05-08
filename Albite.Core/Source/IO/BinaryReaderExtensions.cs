@@ -1,8 +1,8 @@
-﻿using Albite.Core.Diagnostics;
+﻿using Albite.Diagnostics;
 using System;
 using System.IO;
 
-namespace Albite.Core.IO
+namespace Albite.IO
 {
     /// <summary>
     /// Extension methods for BinaryReader.

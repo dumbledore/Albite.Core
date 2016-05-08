@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Albite.Core.Reflection
+namespace Albite.Reflection
 {
     /// <summary>
     /// Extension methods for <c>TypeInfo</c> that return <c>MemberValue</c>s.

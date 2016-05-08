@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Albite.Core.Reflection
+namespace Albite.Reflection
 {
     // As properties are more special than fields,
     // e.g. they handle indexers as well, i.e. GetValue/SetValue

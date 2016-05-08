@@ -1,11 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 
-namespace Albite.Core.Test.WindowsPhone
+namespace Albite.Test.WindowsPhone
 {
     [TestClass]
-    public class ReflectionTestWP : UnitTest
+    public class ReflectionTest : UnitTest
     {
-        private readonly ReflectionTest _test = new ReflectionTest();
+        private readonly Test.ReflectionTest _test = new Test.ReflectionTest();
 
         [TestMethod]
         public void VerifyTypeEquality()

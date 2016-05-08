@@ -1,4 +1,4 @@
-﻿namespace Albite.Core.Diagnostics
+﻿namespace Albite.Diagnostics
 {
     /// <summary>
     /// Universal logging interface. May be backed up by various logs,

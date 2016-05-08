@@ -2,9 +2,9 @@
 using System.Globalization;
 using VSUnitTest = Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 
-namespace Albite.Core.Test.Internal
+namespace Albite.Test.WindowsPhone
 {
-    internal class Assert : IAssert
+    class Assert : IAssert
     {
         public static readonly IAssert Instance = new Assert();
 

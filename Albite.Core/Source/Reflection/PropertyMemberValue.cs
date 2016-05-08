@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Reflection;
 
-namespace Albite.Core.Reflection
+namespace Albite.Reflection
 {
-    internal class PropertyMemberValue : IMemberValue
+    class PropertyMemberValue : IMemberValue
     {
         readonly PropertyInfo info;
 

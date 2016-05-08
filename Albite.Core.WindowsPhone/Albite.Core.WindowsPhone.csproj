@@ -9,7 +9,7 @@
     <ProjectGuid>{54009832-00AC-471C-A3A9-03381333EEFB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Albite.Core</RootNamespace>
+    <RootNamespace>Albite</RootNamespace>
     <AssemblyName>Albite.Core.WindowsPhone</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
@@ -42,10 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\Internal\Assert.cs" />
-    <Compile Include="Source\Internal\CollectionAssert.cs" />
-    <Compile Include="Source\Internal\Logger.cs" />
-    <Compile Include="Source\UnitTest.cs" />
+    <Compile Include="Source\Test\WindowsPhone\Assert.cs" />
+    <Compile Include="Source\Test\WindowsPhone\CollectionAssert.cs" />
+    <Compile Include="Source\Test\WindowsPhone\Logger.cs" />
+    <Compile Include="Source\Test\UnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Albite.Core\Albite.Core.csproj">

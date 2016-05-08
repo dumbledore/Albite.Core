@@ -9,7 +9,7 @@
     <ProjectGuid>{4786E273-75EE-4139-8AC8-92BB5E57DA9F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Albite.Core.Test.Windows</RootNamespace>
+    <RootNamespace>Albite.Test.Windows</RootNamespace>
     <AssemblyName>Albite.Core.Test.Windows</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>

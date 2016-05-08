@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-namespace Albite.Core.Collections
+namespace Albite.Collections
 {
     /// <summary>
     /// Compares objects by references.

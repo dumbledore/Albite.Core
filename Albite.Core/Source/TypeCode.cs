@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Albite.Core
+namespace Albite
 {
     // Note that the order of the enumeration values
     // is the same as in C# core library.

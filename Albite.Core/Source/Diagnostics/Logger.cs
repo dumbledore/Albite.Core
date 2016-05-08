@@ -1,4 +1,4 @@
-﻿namespace Albite.Core.Diagnostics
+﻿namespace Albite.Diagnostics
 {
     /// <summary>
     /// Used to hold the currently used logger.

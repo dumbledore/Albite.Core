@@ -1,9 +1,9 @@
-﻿using Albite.Core.Collections;
+﻿using Albite.Collections;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Albite.Core.Test
+namespace Albite.Test
 {
     public class EnumerableTest
     {

@@ -1,10 +1,10 @@
-﻿using Albite.Core.Diagnostics;
-using Albite.Core.Reflection;
+﻿using Albite.Diagnostics;
+using Albite.Reflection;
 using System;
 using System.Linq;
 using System.Reflection;
 
-namespace Albite.Core.Test
+namespace Albite.Test
 {
     public class ReflectionTest
     {

@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 [assembly: InternalsVisibleTo("Albite.Core.WindowsPhone")]
 
 #pragma warning disable 1591
-namespace Albite.Core.Test
+namespace Albite.Test
 {
     public class Assert
     {

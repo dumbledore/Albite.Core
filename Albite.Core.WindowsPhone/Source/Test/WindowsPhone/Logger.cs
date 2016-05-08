@@ -1,9 +1,9 @@
-﻿using Albite.Core.Diagnostics;
+﻿using Albite.Diagnostics;
 using VSUnitTest = Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 
-namespace Albite.Core.Test.Internal
+namespace Albite.Test.WindowsPhone
 {
-    internal class Logger : ILogger
+    class Logger : ILogger
     {
         public static readonly ILogger Instance = new Logger();
 

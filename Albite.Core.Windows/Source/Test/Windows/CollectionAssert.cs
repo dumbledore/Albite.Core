@@ -2,9 +2,9 @@
 using System.Collections;
 using VSUnitTest = Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 
-namespace Albite.Core.Test.Internal
+namespace Albite.Test.Windows
 {
-    internal class CollectionAssert : ICollectionAssert
+    class CollectionAssert : ICollectionAssert
     {
         public static readonly ICollectionAssert Instance = new CollectionAssert();
 

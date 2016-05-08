@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace Albite.Core.Collections
+namespace Albite.Collections
 {
     // Let's keep it simple, and *not* handle ICollection<>,
     // even though it does not inherit from ICollection, most

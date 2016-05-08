@@ -1,11 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 
-namespace Albite.Core.Test.WindowsPhone
+namespace Albite.Test.WindowsPhone
 {
     [TestClass]
-    public class BinaryIOTestWP : UnitTest
+    public class BinaryIOTest : UnitTest
     {
-        private readonly BinaryIOTest _test = new BinaryIOTest();
+        private readonly Test.BinaryIOTest _test = new Test.BinaryIOTest();
 
         [TestMethod]
         public void EnumTest()

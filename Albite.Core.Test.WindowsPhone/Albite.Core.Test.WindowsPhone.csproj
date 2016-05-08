@@ -7,7 +7,7 @@
     <ProjectGuid>{FD3EC798-4272-430E-B5A9-9D8224F8E0C3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Albite.Core.Test.WindowsPhone</RootNamespace>
+    <RootNamespace>Albite.Test.WindowsPhone</RootNamespace>
     <AssemblyName>Albite.Core.Test.WindowsPhone</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>

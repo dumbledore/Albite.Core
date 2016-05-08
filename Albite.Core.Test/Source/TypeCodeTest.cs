@@ -1,7 +1,7 @@
-﻿using Albite.Core.Diagnostics;
+﻿using Albite.Diagnostics;
 using System;
 
-namespace Albite.Core.Test
+namespace Albite.Test
 {
     public class TypeCodeTest
     {

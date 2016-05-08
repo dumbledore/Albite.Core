@@ -1,11 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 
-namespace Albite.Core.Test.Windows
+namespace Albite.Test.Windows
 {
     [TestClass]
-    public class EnumerableTestW : UnitTest
+    public class EnumerableTest : UnitTest
     {
-        private readonly EnumerableTest _test = new EnumerableTest();
+        private readonly Test.EnumerableTest _test = new Test.EnumerableTest();
 
         [TestMethod]
         public void ListTest()

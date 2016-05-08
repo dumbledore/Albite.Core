@@ -1,10 +1,10 @@
-﻿using Albite.Core.Diagnostics;
-using Albite.Core.IO;
+﻿using Albite.Diagnostics;
+using Albite.IO;
 using System;
 using System.IO;
 using System.Text;
 
-namespace Albite.Core.Test
+namespace Albite.Test
 {
     public class BinaryIOTest
     {
