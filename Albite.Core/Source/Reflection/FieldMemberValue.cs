@@ -5,31 +5,31 @@ namespace Albite.Reflection
 {
     class FieldMemberValue : IMemberValue
     {
-        readonly FieldInfo info;
+        private readonly FieldInfo _info;
 
         public FieldMemberValue(FieldInfo info)
         {
-            this.info = info;
+            _info = info;
         }
 
         public object GetValue(object obj)
         {
-            return info.GetValue(obj);
+            return _info.GetValue(obj);
         }
 
         public void SetValue(object obj, object value)
         {
-            info.SetValue(obj, value);
+            _info.SetValue(obj, value);
         }
 
         public string Name
         {
-            get { return info.Name; }
+            get { return _info.Name; }
         }
 
         public Type MemberType
         {
-            get { return info.FieldType; }
+            get { return _info.FieldType; }
         }
     }
 }

@@ -12,16 +12,16 @@ namespace Albite.Collections
     /// <typeparam name="TValue">Type of the values for the tree nodes</typeparam>
     public class DepthFirstTreeEnumerator<TValue> : ITreeEnumerator<TValue>
     {
-        private INode<TValue> root;
-        private INode<TValue> currentNode;
+        private INode<TValue> _root;
+        private INode<TValue> _currentNode;
 
         // A stack of nodes to visit
-        private Stack<INode<TValue>> nodesToVisit = new Stack<INode<TValue>>();
+        private Stack<INode<TValue>> _toVisit = new Stack<INode<TValue>>();
 
         // A temporary list of nodes to add to the stack. Use in order
         // to reverse the collection of nodes, so that we have pre-order
         // enumerator, instead of a post-order one.
-        private List<INode<TValue>> tempNodes = new List<INode<TValue>>();
+        private List<INode<TValue>> _temp = new List<INode<TValue>>();
 
         /// <summary>
         /// Creates an enumerator for the root node
@@ -34,32 +34,32 @@ namespace Albite.Collections
                 throw new NullReferenceException("Root node is null");
             }
 
-            this.root = root;
+            _root = root;
 
             Reset();
         }
 
         public void Reset()
         {
-            currentNode = null;
-            nodesToVisit.Clear();
+            _currentNode = null;
+            _toVisit.Clear();
 
             // Note the root could potentially have siblings
-            prependSiblings(root);
+            prependSiblings(_root);
         }
 
         public bool MoveNext()
         {
-            if (nodesToVisit.Count == 0)
+            if (_toVisit.Count == 0)
             {
                 return false;
             }
 
             // Get the node on top of the stack
-            currentNode = nodesToVisit.Pop();
+            _currentNode = _toVisit.Pop();
 
             // Pre-pend its children
-            prependSiblings(currentNode.FirstChild);
+            prependSiblings(_currentNode.FirstChild);
 
             // We have a current node
             return true;
@@ -67,25 +67,25 @@ namespace Albite.Collections
 
         private void prependSiblings(INode<TValue> node)
         {
-            tempNodes.Clear();
+            _temp.Clear();
 
             while (node != null)
             {
-                tempNodes.Add(node);
+                _temp.Add(node);
                 node = node.NextSibling;
             }
 
             // Now push the nodes in reverse so that
             // have pre-order traversal
-            for (int i = tempNodes.Count - 1; i >= 0; i--)
+            for (int i = _temp.Count - 1; i >= 0; i--)
             {
-                nodesToVisit.Push(tempNodes[i]);
+                _toVisit.Push(_temp[i]);
             }
         }
 
         public INode<TValue> Current
         {
-            get { return currentNode; }
+            get { return _currentNode; }
         }
 
         object IEnumerator.Current
