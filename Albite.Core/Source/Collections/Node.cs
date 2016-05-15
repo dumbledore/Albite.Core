@@ -2,11 +2,11 @@
 
 namespace Albite.Collections
 {
-    public abstract class AbstractNode<TValue> : INode<TValue>
+    public class Node<TValue> : INode<TValue>
     {
-        public abstract TValue Value { get; }
+        public TValue Value { get; set; }
 
-        private AbstractNode<TValue> _firstChild;
+        private Node<TValue> _firstChild;
         public INode<TValue> FirstChild
         {
             get { return _firstChild; }
@@ -17,7 +17,7 @@ namespace Albite.Collections
             get { return _lastChild; }
         }
 
-        private AbstractNode<TValue> _lastChild
+        private Node<TValue> _lastChild
         {
             get
             {
@@ -35,7 +35,7 @@ namespace Albite.Collections
             }
         }
 
-        private AbstractNode<TValue> _nextSibling;
+        private Node<TValue> _nextSibling;
         public INode<TValue> NextSibling
         {
             get { return _nextSibling; }
@@ -46,11 +46,11 @@ namespace Albite.Collections
             get { return _lastSibling; }
         }
 
-        private AbstractNode<TValue> _lastSibling
+        private Node<TValue> _lastSibling
         {
             get
             {
-                AbstractNode<TValue> sibling = _nextSibling;
+                Node<TValue> sibling = _nextSibling;
                 if (sibling != null)
                 {
                     while (sibling._nextSibling != null)
@@ -62,7 +62,7 @@ namespace Albite.Collections
             }
         }
 
-        public void AddChild(AbstractNode<TValue> newChild)
+        public void AddChild(Node<TValue> newChild)
         {
             newChild.makeSureNotAdded();
 
@@ -76,7 +76,7 @@ namespace Albite.Collections
             }
         }
 
-        public void AddSibling(AbstractNode<TValue> newSibling)
+        public void AddSibling(Node<TValue> newSibling)
         {
             newSibling.makeSureNotAdded();
 
