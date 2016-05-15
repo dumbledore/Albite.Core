@@ -1,6 +1,7 @@
 ﻿using Albite.Diagnostics;
 using Albite.Reflection;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -64,7 +65,7 @@ namespace Albite.Test
             Assert.AreEqual(20, mv.Property);
 
             // Get all members of MV (fields + properties)
-            IMemberValue[] members = typeof(MV).GetTypeInfo().GetMembers();
+            IList<IMemberValue> members = typeof(MV).GetTypeInfo().GetMembers();
 
             // alter _field
             IMemberValue fieldMember = members.Single(m => m.Name == "_field");
@@ -91,8 +92,8 @@ namespace Albite.Test
         public void MemberValueIndexerTest()
         {
             // Get all members of MVI (fields + properties)
-            IMemberValue[] members = typeof(MVI).GetTypeInfo().GetMembers();
-            Assert.AreEqual(0, members.Length);
+            IList<IMemberValue> members = typeof(MVI).GetTypeInfo().GetMembers();
+            Assert.AreEqual(0, members.Count);
         }
     }
 }
