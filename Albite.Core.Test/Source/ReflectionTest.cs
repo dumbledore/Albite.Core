@@ -90,8 +90,6 @@ namespace Albite.Test
 
         public void MemberValueIndexerTest()
         {
-            MVI mvi = new MVI();
-
             // Get all members of MVI (fields + properties)
             IMemberValue[] members = typeof(MVI).GetTypeInfo().GetMembers();
             Assert.AreEqual(0, members.Length);
