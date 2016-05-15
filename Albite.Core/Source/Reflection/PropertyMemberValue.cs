@@ -9,7 +9,7 @@ namespace Albite.Reflection
 
         public PropertyMemberValue(PropertyInfo info)
         {
-            this._info = info;
+            _info = info;
         }
 
         public object GetValue(object obj)
@@ -22,9 +22,9 @@ namespace Albite.Reflection
             _info.SetValue(obj, value);
         }
 
-        public string Name
+        public MemberInfo Info
         {
-            get { return _info.Name; }
+            get { return _info; }
         }
 
         public Type MemberType

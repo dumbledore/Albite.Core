@@ -68,13 +68,13 @@ namespace Albite.Test
             IList<IMemberValue> members = typeof(MV).GetTypeInfo().GetMembers();
 
             // alter _field
-            IMemberValue fieldMember = members.Single(m => m.Name == "_field");
+            IMemberValue fieldMember = members.Single(m => m.Info.Name == "_field");
             fieldMember.SetValue(mv, 100);
             Assert.AreEqual(100, (int)fieldMember.GetValue(mv));
             Assert.AreEqual(100, mv.Field());
 
             // alter Property
-            IMemberValue propertyMember = members.Single(m => m.Name == "Property");
+            IMemberValue propertyMember = members.Single(m => m.Info.Name == "Property");
             propertyMember.SetValue(mv, 200);
             Assert.AreEqual(200, (int)propertyMember.GetValue(mv));
             Assert.AreEqual(200, mv.Property);

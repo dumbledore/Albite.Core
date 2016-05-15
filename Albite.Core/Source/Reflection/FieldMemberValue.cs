@@ -22,9 +22,9 @@ namespace Albite.Reflection
             _info.SetValue(obj, value);
         }
 
-        public string Name
+        public MemberInfo Info
         {
-            get { return _info.Name; }
+            get { return _info; }
         }
 
         public Type MemberType

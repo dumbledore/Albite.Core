@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace Albite.Reflection
 {
@@ -31,10 +32,9 @@ namespace Albite.Reflection
         void SetValue(object obj, object value);
 
         /// <summary>
-        /// Gets the name of the current member.
+        /// Gets the underlying MemberInfo object.
         /// </summary>
-        /// <returns>A <c>System.String</c> containing the name of this member.</returns>
-        string Name { get; }
+        MemberInfo Info { get; }
 
         /// <summary>
         /// Gets the type of the member.
