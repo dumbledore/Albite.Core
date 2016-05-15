@@ -41,5 +41,15 @@ namespace Albite.Reflection
         /// <returns>The type of the member.</returns>
         /// </summary>
         Type MemberType { get; }
+
+        /// <summary>
+        /// <c>true</c> if member can be read from.
+        /// </summary>
+        bool CanRead { get; }
+
+        /// <summary>
+        /// <c>true</c> if member can be written to.
+        /// </summary>
+        bool CanWrite { get; }
     }
 }

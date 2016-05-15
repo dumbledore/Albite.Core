@@ -31,5 +31,15 @@ namespace Albite.Reflection
         {
             get { return _info.PropertyType; }
         }
+
+        public bool CanRead
+        {
+            get { return _info.CanRead; }
+        }
+
+        public bool CanWrite
+        {
+            get { return _info.CanWrite; }
+        }
     }
 }
