@@ -6,58 +6,52 @@ namespace Albite.Collections
     {
         public TValue Value { get; set; }
 
-        private Node<TValue> _firstChild;
-        public INode<TValue> FirstChild
+        INode<TValue> INode<TValue>.FirstChild
         {
-            get { return _firstChild; }
+            get { return FirstChild; }
         }
 
-        public INode<TValue> LastChild
-        {
-            get { return _lastChild; }
-        }
+        public Node<TValue> FirstChild { get; private set; }
 
-        private Node<TValue> _lastChild
+        public Node<TValue> LastChild
         {
             get
             {
-                if (_firstChild != null)
+                if (FirstChild != null)
                 {
-                    if (_firstChild._nextSibling != null)
+                    if (FirstChild.NextSibling != null)
                     {
-                        return _firstChild._lastSibling;
+                        return FirstChild.LastSibling;
                     }
 
                     // no siblings, so return the first child directly
-                    return _firstChild;
+                    return FirstChild;
                 }
+
                 return null;
             }
         }
 
-        private Node<TValue> _nextSibling;
-        public INode<TValue> NextSibling
+        INode<TValue> INode<TValue>.NextSibling
         {
-            get { return _nextSibling; }
+            get { return NextSibling; }
         }
 
-        public INode<TValue> LastSibling
-        {
-            get { return _lastSibling; }
-        }
+        public Node<TValue> NextSibling { get; private set; }
 
-        private Node<TValue> _lastSibling
+        public Node<TValue> LastSibling
         {
             get
             {
-                Node<TValue> sibling = _nextSibling;
+                Node<TValue> sibling = NextSibling;
                 if (sibling != null)
                 {
-                    while (sibling._nextSibling != null)
+                    while (sibling.NextSibling != null)
                     {
-                        sibling = sibling._nextSibling;
+                        sibling = sibling.NextSibling;
                     }
                 }
+
                 return sibling;
             }
         }
@@ -66,13 +60,13 @@ namespace Albite.Collections
         {
             newChild.makeSureNotAdded();
 
-            if (_firstChild == null)
+            if (FirstChild == null)
             {
-                _firstChild = newChild;
+                FirstChild = newChild;
             }
             else
             {
-                _lastChild._nextSibling = newChild;
+                LastChild.NextSibling = newChild;
             }
         }
 
@@ -80,12 +74,12 @@ namespace Albite.Collections
         {
             newSibling.makeSureNotAdded();
 
-            if (_nextSibling != null)
+            if (NextSibling != null)
             {
-                newSibling._nextSibling = _nextSibling;
+                newSibling.NextSibling = NextSibling;
             }
 
-            _nextSibling = newSibling;
+            NextSibling = newSibling;
         }
 
         // This check is done so that the same node is not added
