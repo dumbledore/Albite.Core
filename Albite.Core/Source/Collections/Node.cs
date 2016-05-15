@@ -56,30 +56,30 @@ namespace Albite.Collections
             }
         }
 
-        public void AddChild(Node<TValue> newChild)
+        public void AddChild(Node<TValue> child)
         {
-            newChild.makeSureNotAdded();
+            child.assertNotAdded();
 
             if (FirstChild == null)
             {
-                FirstChild = newChild;
+                FirstChild = child;
             }
             else
             {
-                LastChild.NextSibling = newChild;
+                LastChild.NextSibling = child;
             }
         }
 
-        public void AddSibling(Node<TValue> newSibling)
+        public void AddSibling(Node<TValue> sibling)
         {
-            newSibling.makeSureNotAdded();
+            sibling.assertNotAdded();
 
             if (NextSibling != null)
             {
-                newSibling.NextSibling = NextSibling;
+                sibling.NextSibling = NextSibling;
             }
 
-            NextSibling = newSibling;
+            NextSibling = sibling;
         }
 
         // This check is done so that the same node is not added
@@ -92,7 +92,7 @@ namespace Albite.Collections
         // yet, moving nodes around would make things complex,
         // which is not needed at the moment, i.e. static
         // trees are quite fine for now.
-        private void makeSureNotAdded()
+        private void assertNotAdded()
         {
             if (_alreadyAdded)
             {
