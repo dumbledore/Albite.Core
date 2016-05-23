@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Albite.Serialization;
+using System;
 
 namespace Albite.Collections
 {
@@ -11,6 +12,7 @@ namespace Albite.Collections
             this.Value = value;
         }
 
+        [Serialized]
         public TValue Value { get; set; }
 
         INode<TValue> INode<TValue>.FirstChild
@@ -18,6 +20,7 @@ namespace Albite.Collections
             get { return FirstChild; }
         }
 
+        [Serialized]
         public Node<TValue> FirstChild { get; private set; }
 
         public Node<TValue> LastChild
@@ -44,6 +47,7 @@ namespace Albite.Collections
             get { return NextSibling; }
         }
 
+        [Serialized]
         public Node<TValue> NextSibling { get; private set; }
 
         /// <summary>
@@ -89,6 +93,7 @@ namespace Albite.Collections
             _alreadyAdded = true;
         }
 
+        [Serialized]
         private bool _alreadyAdded = false;
     }
 }

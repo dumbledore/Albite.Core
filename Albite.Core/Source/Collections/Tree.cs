@@ -7,6 +7,9 @@ namespace Albite.Collections
     {
         public INode<TValue> Root { get; private set; }
 
+        // For serialization
+        private Tree() { }
+
         public Tree(INode<TValue> root)
         {
             Root = root;

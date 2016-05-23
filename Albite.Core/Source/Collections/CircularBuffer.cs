@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Albite.Serialization;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +13,20 @@ namespace Albite.Collections
             get { return data.Length; }
         }
 
+        [Serialized]
         // array holding items
         protected TValue[] data;
 
+        [Serialized]
         // offset of current item
         protected int offset = 0;
 
+        [Serialized]
         // total number of items
         protected int size = 0;
+
+        // For serialization
+        protected CircularBuffer() { }
 
         public CircularBuffer(int maximumCapacity)
         {

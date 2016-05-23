@@ -4,6 +4,9 @@ namespace Albite.Collections
 {
     public class CircularBufferQueue<TValue> : CircularBuffer<TValue>
     {
+        // For serialization
+        private CircularBufferQueue() { }
+
         public CircularBufferQueue(int maximumCapacity)
             : base(maximumCapacity) { }
 
