@@ -8,6 +8,7 @@ namespace Albite.Test
     public class CircularBufferTest
     {
         private static int Iterations = 1000;
+        private static int Seed = 1234567890;
 
         public void PredefinedDataTest()
         {
@@ -153,7 +154,7 @@ namespace Albite.Test
 
             List<int> list = new List<int>(maxCapacity);
 
-            Random random = new Random();
+            Random random = new Random(Seed);
 
             for (int i = 0; i < Iterations; i++)
             {
