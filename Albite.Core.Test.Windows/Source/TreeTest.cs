@@ -12,5 +12,11 @@ namespace Albite.Test.Windows
         {
             _test.StaticTreeTest();
         }
+
+        [TestMethod]
+        public void DynamicTreeTest()
+        {
+            _test.DynamicTreeTest();
+        }
     }
 }

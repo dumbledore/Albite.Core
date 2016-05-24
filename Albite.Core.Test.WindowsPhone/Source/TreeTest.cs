@@ -12,5 +12,11 @@ namespace Albite.Test.WindowsPhone
         {
             _test.StaticTreeTest();
         }
+
+        [TestMethod]
+        public void DynamicTreeTest()
+        {
+            _test.DynamicTreeTest();
+        }
     }
 }
