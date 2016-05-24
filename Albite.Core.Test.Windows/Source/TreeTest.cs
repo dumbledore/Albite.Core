@@ -8,9 +8,9 @@ namespace Albite.Test.Windows
         private readonly Test.TreeTest _test = new Test.TreeTest();
 
         [TestMethod]
-        public void SimpleTreeTest()
+        public void StaticTreeTest()
         {
-            _test.SimpleTreeTest();
+            _test.StaticTreeTest();
         }
     }
 }
