@@ -4,6 +4,13 @@ namespace Albite.Collections
 {
     public class Node<TValue> : INode<TValue>
     {
+        public Node() { }
+
+        public Node(TValue value)
+        {
+            this.Value = value;
+        }
+
         public TValue Value { get; set; }
 
         INode<TValue> INode<TValue>.FirstChild
@@ -19,13 +26,13 @@ namespace Albite.Collections
             {
                 if (FirstChild != null)
                 {
-                    if (FirstChild.NextSibling != null)
+                    Node<TValue> node = FirstChild;
+                    while (node.NextSibling != null)
                     {
-                        return FirstChild.LastSibling;
+                        node = node.NextSibling;
                     }
 
-                    // no siblings, so return the first child directly
-                    return FirstChild;
+                    return node;
                 }
 
                 return null;
@@ -39,47 +46,27 @@ namespace Albite.Collections
 
         public Node<TValue> NextSibling { get; private set; }
 
-        public Node<TValue> LastSibling
+        /// <summary>
+        /// Adds a new child node as the last child node.
+        /// </summary>
+        /// <param name="node">The node object you want to append</param>
+        /// <returns>The appended node</returns>
+        public Node<TValue> AppendChild(Node<TValue> node)
         {
-            get
-            {
-                Node<TValue> sibling = NextSibling;
-                if (sibling != null)
-                {
-                    while (sibling.NextSibling != null)
-                    {
-                        sibling = sibling.NextSibling;
-                    }
-                }
-
-                return sibling;
-            }
-        }
-
-        public void AddChild(Node<TValue> child)
-        {
-            child.assertNotAdded();
+            node.assertNotAdded();
 
             if (FirstChild == null)
             {
-                FirstChild = child;
+                // No children
+                FirstChild = node;
             }
             else
             {
-                LastChild.NextSibling = child;
-            }
-        }
-
-        public void AddSibling(Node<TValue> sibling)
-        {
-            sibling.assertNotAdded();
-
-            if (NextSibling != null)
-            {
-                sibling.NextSibling = NextSibling;
+                // Append at the end
+                LastChild.NextSibling = node;
             }
 
-            NextSibling = sibling;
+            return node;
         }
 
         // This check is done so that the same node is not added
