@@ -148,8 +148,13 @@ namespace Albite.Test
 
         public void RandomDataTest()
         {
-            int maxCapacity = 3;
+            randomDataTest(1);
+            randomDataTest(2);
+            randomDataTest(3);
+        }
 
+        private void randomDataTest(int maxCapacity)
+        {
             CircularBuffer<int> buffer = new CircularBuffer<int>(maxCapacity);
 
             List<int> list = new List<int>(maxCapacity);
