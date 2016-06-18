@@ -57,6 +57,7 @@
     <Compile Include="Source\Diagnostics\Logger.cs" />
     <Compile Include="Source\IO\BinaryReaderExtensions.cs" />
     <Compile Include="Source\IO\BinaryWriterExtensions.cs" />
+    <Compile Include="Source\Serialization\SerializedAttribute.cs" />
     <Compile Include="Source\Reflection\FieldMemberValue.cs" />
     <Compile Include="Source\Reflection\IMemberValue.cs" />
     <Compile Include="Source\Reflection\MemberValueExtensions.cs" />
