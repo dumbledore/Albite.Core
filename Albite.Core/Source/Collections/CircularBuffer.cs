@@ -77,11 +77,6 @@ namespace Albite.Collections
             }
         }
 
-        public int Count
-        {
-            get { return size; }
-        }
-
         public bool IsEmpty
         {
             get { return Count == 0; }
@@ -242,6 +237,12 @@ namespace Albite.Collections
             return index % MaximumCapacity;
         }
 
+        // ICollection interface
+        public int Count
+        {
+            get { return size; }
+        }
+
         public bool IsSynchronized { get { return false; } }
 
         public object SyncRoot { get { return null; } }
@@ -251,27 +252,26 @@ namespace Albite.Collections
             data.CopyTo(array, index);
         }
 
+        // IEnumertor<> interface
         public IEnumerator<TValue> GetEnumerator()
         {
             return new Enumerator(this);
         }
 
+        // IEnumertor interface
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
 
+        // Actual enumerator  that supports wrapping indices
         private class Enumerator : IEnumerator<TValue>
         {
             TValue[] data;
-
             int offset;
-
             int size;
 
             int currentIndex;
-
-            TValue currentItem;
 
             public Enumerator(CircularBuffer<TValue> buffer)
             {
@@ -285,33 +285,18 @@ namespace Albite.Collections
             public void Reset()
             {
                 currentIndex = -1;
-                currentItem = default(TValue);
             }
 
             public bool MoveNext()
             {
-                bool hasNext = false;
-
-                if (currentIndex + 1 < size)
-                {
-                    // increment to next index
-                    currentIndex++;
-
-                    // update current item
-                    currentItem = data[(offset + currentIndex) % data.Length];
-
-                    // there's an item
-                    hasNext = true;
-                }
-
-                return hasNext;
+                return (++currentIndex < size);
             }
 
             void IDisposable.Dispose() { }
 
             public TValue Current
             {
-                get { return currentItem; }
+                get { return data[(offset + currentIndex) % data.Length]; }
             }
 
             object IEnumerator.Current
