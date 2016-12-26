@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Albite.Core</id>
-    <version>1.6.0.0</version>
+    <version>1.6.1.0</version>
     <title>Albite.Core</title>
     <authors>Svetlin Ankov</authors>
     <owners>dumbledore</owners>
@@ -12,7 +12,7 @@
     <description>
       A Portable Class Library containing simple core utilities for .NET
     </description>
-    <releaseNotes>Initial drop.</releaseNotes>
+    <releaseNotes>Fixed the readme and removed the symbols.</releaseNotes>
     <copyright>Copyright © Svetlin Ankov 2016</copyright>
     <tags>c# .net albite core utility</tags>
 
@@ -30,11 +30,7 @@
     <file src="bin\Release\Albite.Core.dll" target="lib\netstandard1.1" />
     <file src="bin\Release\Albite.Core.xml" target="lib\netstandard1.1" />
 
-    <!-- Symbols and source -->
-    <file src="bin\Release\Albite.Core.pdb" target="lib\netstandard1.1" />
-    <file src="Source\**" target="src\Source" />
-
     <!-- A readme will be displayed when the package is installed -->
-    <file src="..\README.md" target="" />
+    <file src="README.txt" target="" />
   </files>
 </package>
