@@ -95,5 +95,22 @@ namespace Albite.Collections
 
         [Serialized]
         private bool _alreadyAdded = false;
+
+        public override bool Equals(object obj)
+        {
+            Node<TValue> other = obj as Node<TValue>;
+
+            if (other == null)
+            {
+                return false;
+            }
+
+            return Object.Equals(Value, other.Value);
+        }
+
+        public override int GetHashCode()
+        {
+            return Value == null ? 0 : Value.GetHashCode();
+        }
     }
 }
