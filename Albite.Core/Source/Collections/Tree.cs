@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using Albite.Serialization;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Albite.Collections
 {
     public class Tree<TValue> : ITree<TValue>
     {
+        [Serialized]
         public INode<TValue> Root { get; private set; }
 
         // For serialization
