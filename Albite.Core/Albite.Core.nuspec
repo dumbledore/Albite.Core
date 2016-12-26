@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Albite.Core</id>
+    <version>1.6.0.0</version>
+    <title>Albite.Core</title>
+    <authors>Svetlin Ankov</authors>
+    <owners>dumbledore</owners>
+    <licenseUrl>https://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://github.com/dumbledore/Albite.Core</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      A Portable Class Library containing simple core utilities for .NET
+    </description>
+    <releaseNotes>Initial drop.</releaseNotes>
+    <copyright>Copyright © Svetlin Ankov 2016</copyright>
+    <tags>c# .net albite core utility</tags>
+
+    <!-- A list of this packages dependencies-->
+    <dependencies>
+      <group targetFramework=".NETStandard1.1">
+        <dependency id="Microsoft.NETCore.Portable.Compatibility" version="1.0.1" exclude="Build,Analyzers" />
+        <dependency id="NETStandard.Library" version="1.6.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+
+  <files>
+    <!-- Main library files -->
+    <file src="bin\Release\Albite.Core.dll" target="lib\netstandard1.1" />
+    <file src="bin\Release\Albite.Core.xml" target="lib\netstandard1.1" />
+
+    <!-- Symbols and source -->
+    <file src="bin\Release\Albite.Core.pdb" target="lib\netstandard1.1" />
+    <file src="Source\**" target="src\Source" />
+
+    <!-- A readme will be displayed when the package is installed -->
+    <file src="..\README.md" target="" />
+  </files>
+</package>
